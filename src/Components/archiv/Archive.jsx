@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { Card, CardContent, CardActions, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
+import { UnarchiveOutlined as Unarchive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
 
 import { DataContext } from '../../Context API/DataProvider';
 
@@ -14,19 +14,19 @@ const StyledCard = styled(Card)`
     box-shadow: none;
 `
 
-const Note = ({ note }) => {
+const Archive = ({ note }) => {
 
-    const { notes, setNotes, setAcrchiveNotes, setDeleteNotes } = useContext(DataContext);
+    const { notes, setNotes, archiveNotes, setAcrchiveNotes, setDeleteNotes } = useContext(DataContext);
 
-    const archiveNote = (note) => {
-        const updatedNotes = notes.filter(data => data.id !== note.id);
-        setNotes(updatedNotes);
-        setAcrchiveNotes(prevArr => [note, ...prevArr]);
+    const UnarchiveNote = (note) => {
+        const updatedNotes = archiveNotes.filter(data => data.id !== note.id);
+        setAcrchiveNotes(updatedNotes);
+        setNotes(prevArr => [note, ...prevArr]);
     }
 
     const deleteNote = (note) => {
-        const updatedNotes = notes.filter(data => data.id !== note.id);
-        setNotes(updatedNotes);
+        const updatedNotes = archivenotes.filter(data => data.id !== note.id);
+        setAcrchiveNotes(updatedNotes);
         setDeleteNotes(prevArr => [note, ...prevArr]);
     }
 
@@ -37,19 +37,19 @@ const Note = ({ note }) => {
                     <Typography>{note.text}</Typography>
                 </CardContent>
                 <CardActions>
-                    <Archive 
+                    <Unarchive 
                         fontSize="small" 
                         style={{ marginLeft: 'auto',cursor: 'pointer' }} 
-                        onClick={() => archiveNote(note)}
+                        onClick={() => UnarchiveNote(note)}
                     />  
                     <Delete 
                         fontSize="small"
                         onClick={() => deleteNote(note)}
-                        style={{cursor: 'pointer' }}
+                        style={{cursor: 'pointer' }}  
                     />
                 </CardActions>
         </StyledCard>
     )
 }
 
-export default Note;
+export default Archive;

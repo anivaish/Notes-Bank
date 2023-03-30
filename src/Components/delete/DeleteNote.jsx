@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { Card, CardContent, CardActions, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
+import { RestoreFromTrashOutlined as Restore, DeleteForeverOutlined as Delete } from '@mui/icons-material';
 
 import { DataContext } from '../../Context API/DataProvider';
 
@@ -14,20 +14,19 @@ const StyledCard = styled(Card)`
     box-shadow: none;
 `
 
-const Note = ({ note }) => {
+const DeleteNote = ({ note }) => {
 
-    const { notes, setNotes, setAcrchiveNotes, setDeleteNotes } = useContext(DataContext);
+    const { notes, setNotes, setAcrchiveNotes, deletedNotes,setDeleteNotes } = useContext(DataContext);
 
-    const archiveNote = (note) => {
-        const updatedNotes = notes.filter(data => data.id !== note.id);
-        setNotes(updatedNotes);
-        setAcrchiveNotes(prevArr => [note, ...prevArr]);
+    const restoreNote = (note) => {
+        const updatedNotes = deletedNotes.filter(data => data.id !== note.id);
+        setDeleteNotes(updatedNotes);
+        setNotes(prevArr => [note, ...prevArr]);
     }
 
     const deleteNote = (note) => {
         const updatedNotes = notes.filter(data => data.id !== note.id);
-        setNotes(updatedNotes);
-        setDeleteNotes(prevArr => [note, ...prevArr]);
+        setDeleteNotes(updatedNotes);
     }
 
     return (
@@ -37,19 +36,19 @@ const Note = ({ note }) => {
                     <Typography>{note.text}</Typography>
                 </CardContent>
                 <CardActions>
-                    <Archive 
-                        fontSize="small" 
-                        style={{ marginLeft: 'auto',cursor: 'pointer' }} 
-                        onClick={() => archiveNote(note)}
-                    />  
                     <Delete 
                         fontSize="small"
                         onClick={() => deleteNote(note)}
                         style={{cursor: 'pointer' }}
                     />
+                    <Restore
+                        fontSize="small" 
+                        style={{ marginLeft: 'auto',cursor: 'pointer'  }} 
+                        onClick={() =>restoreNote(note)}
+                    />  
                 </CardActions>
         </StyledCard>
     )
 }
 
-export default Note;
+export default DeleteNote;

@@ -97,7 +97,7 @@ const SlideDrawer = () => {
     setOpen(prevState=>!prevState);
   };
 
-  const logo = 'https://seeklogo.com/images/G/google-keep-logo-0BC92EBBBD-seeklogo.com.png';
+  const logo = 'https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png';
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -107,13 +107,14 @@ const SlideDrawer = () => {
             onClick={handleDrawer}
             edge="start"
             sx={{
-              marginRight: '20px'
+              marginRight: '10px',
+              marginLeft: '-10px'
             }}
           >
             <MenuIcon />
           </IconButton>
-          <img src={logo} alt="logo" style={{width: 27}} />
-          <Heading>
+          <img src={logo} alt="logo" style={{width: '40px',height: '40px'}} />
+          <Heading style={{marginLeft:'10px'}}>
             Notes Keeper
           </Heading>
         </Toolbar>
