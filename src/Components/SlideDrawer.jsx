@@ -16,6 +16,7 @@ const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
+  border: 'none',
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen,
@@ -24,6 +25,7 @@ const openedMixin = (theme) => ({
 });
 
 const closedMixin = (theme) => ({
+  border: 'none',
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -57,7 +59,6 @@ var AppBar = styled(MuiAppBar, {
   }),
 }));
 
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     width: drawerWidth,
@@ -79,14 +80,14 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 var AppBar=styled(AppBar)`
 z-index:1201;
 background-color:#fff;
-height: 70px;
+height: 65px;
 box-shadow: inset 0 -1px 0 0 #dadce0;
 `;
 
 const Heading=styled(Typography)`
   color: #5f6368;
-  font-size: 24px;
-  margin-left: 25px;
+  font-size: 22px;
+  margin-left: 16px;
 `;
 
 const SlideDrawer = () => {
@@ -111,13 +112,13 @@ const SlideDrawer = () => {
           >
             <MenuIcon />
           </IconButton>
-          <img src={logo} alt="logo" style={{width: 30}} />
+          <img src={logo} alt="logo" style={{width: 27}} />
           <Heading>
             Notes Keeper
           </Heading>
         </Toolbar>
       </AppBar>
-      <Drawer sx={{border:"none"}} variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader ></DrawerHeader>
         <Navlist />
       </Drawer>

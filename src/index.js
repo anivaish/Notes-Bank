@@ -1,8 +1,10 @@
-import React from 'react';
-import RecatDom from 'react-dom';
+import * as ReactDOMClient from 'react-dom/client';
 import App from './App';
 
+const container = document.getElementById('root');
 
-RecatDom.render(
-    <App/>,document.getElementById("root")
-)
+// Create a root.
+const root = ReactDOMClient.createRoot(container);
+
+// Initial render: Render an element to the root.
+root.render(<App/>);

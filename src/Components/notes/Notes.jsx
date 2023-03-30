@@ -6,7 +6,7 @@ import { useContext } from 'react';
 //components
 import Form from "./Form";
 import Singlenote from "./Singlenote";
-import Preface from "./Preface";
+import BgLine from "./BgLine";
 import { DataContext } from '../../Context API/DataProvider';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -18,20 +18,22 @@ const Notes = () => {
     const { notes } = useContext(DataContext);
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box sx={{ display: 'flex', width: '100%'}}>
+            <Box sx={{ flexGrow: 1, p: 3, width: '100%'}}>
                 <DrawerHeader></DrawerHeader>
                 <Form />
                 {
                     (notes.length > 0) ?
                         <Grid container style={{ marginTop: 16 }}>
-                            notes.map(note => (
-                            <Grid item>
-                                <Singlenote note={note} />
-                            </Grid>
-                            ))
+                            {
+                                notes.map(note => (
+                                    <Grid item>
+                                        <Singlenote note={note} />
+                                    </Grid>
+                                ))
+                            }
                         </Grid>
-                        : <Preface />
+                        : <BgLine />
                 }
             </Box>
         </Box>

@@ -1,21 +1,20 @@
 import { useState, useRef, useContext } from 'react';
 import { Box, TextField, ClickAwayListener } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 
 import { DataContext } from '../../Context API/DataProvider';
 
 const Container = styled(Box)`
     display: flex;
     flex-direction: column;
+    margin: auto;
     box-shadow: 0px 2px 5px 1px rgb(60 64 67 / 30%), 0 1px 8px 3px rgb(60 64 67 / 15%);
     border-color: #e0e0e0;
     width: 600px;
     border-radius: 8px;
-    min-height: 30px;
-    padding: 10px 15px;
-    margin-left: 350px;
-    min-height: 30px;
+    padding: 4px 15px;
+    min-height: 20px;
 `
 
 const note = {
@@ -27,9 +26,9 @@ const note = {
 const Form = () => {
     const containRef = useRef();
 
-    const {notes, setNotes}=useContext(DataContext);
-    
-    const [addnote, setAddnote] = useState({...note,id: uuid()})
+    const { notes, setNotes } = useContext(DataContext);
+
+    const [addNote, setAddNote] = useState({ ...note, id: uuid() })
 
     const [showTextField, setshowTextField] = useState(false);
 
@@ -41,19 +40,18 @@ const Form = () => {
     const handleClickAway = () => {
         setshowTextField(false);
         containRef.current.style.minHeight = '30px';
-
-        if (addnote.heading || addnote.text) {
-            setNotes(prevArr => [addnote, ...prevArr])
+        if (addNote.heading || addNote.text) {
+            setNotes(prevArr => [addNote, ...prevArr])
         }
-        console.log(notes);
+        setAddNote({ ...note, id: uuid() })
     }
 
-    const onTextChange=(e)=>{
-        const changedNote={
-            ...addnote,[e.target.name]:e.target.value
+    const onTextChange = (e) => {
+        const changedNote = {
+            ...addNote, [e.target.name]: e.target.value
         }
-        setAddnote(changedNote);
-    }   
+        setAddNote(changedNote);
+    }
 
     return (
         <ClickAwayListener onClickAway={handleClickAway}>
@@ -64,10 +62,10 @@ const Form = () => {
                         placeholder="Title"
                         variant="standard"
                         InputProps={{ disableUnderline: true }}
-                        style={{ marginBottom: 10, }}
+                        style={{ marginBottom: 10}}
                         onChange={(e) => onTextChange(e)}
                         name='heading'
-                    value={addnote.heading}
+                        value={addNote.heading}
                     />
                 }
 
@@ -76,15 +74,15 @@ const Form = () => {
                     multiline
                     maxRows={Infinity}
                     variant="standard"
-                    InputProps={{ disableUnderline: true }}
+                    InputProps={{ disableUnderline: true,}}
                     onClick={onTextAreaClick}
                     onChange={(e) => onTextChange(e)}
                     name='text'
-                value={addnote.text}
+                    value={addNote.text}
                 />
             </Container>
         </ClickAwayListener>
     )
 }
 
-export default Form
+export default Form;

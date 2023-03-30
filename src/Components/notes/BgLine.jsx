@@ -1,15 +1,13 @@
-
-
 import { LightbulbOutlined as Lightbulb } from '@mui/icons-material';
 import { Typography, Box, styled } from '@mui/material';
 
 const Light = styled(Lightbulb)`
     font-size: 120px;
-    color: #F5F5F5;
+    color: #e5e5e5;
 `
 
 const Text = styled(Typography)`
-    color: #80868b;
+    color: #5f6368e8;
     font-size: 22px
 `
 
@@ -30,3 +28,4 @@ const EmptyNotes = () => {
 }
 
 export default EmptyNotes;
+

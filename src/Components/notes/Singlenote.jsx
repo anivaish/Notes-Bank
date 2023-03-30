@@ -7,7 +7,7 @@ import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mu
 import { DataContext } from '../../Context API/DataProvider';
 
 const StyledCard = styled(Card)`
-    border: 1px solid #e0e0e0;
+    border: 1px solid #e0e0e0;  
     border-radius: 8px;
     width: 240px;
     margin: 8px;
