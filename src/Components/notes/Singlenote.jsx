@@ -2,8 +2,7 @@ import { useContext } from 'react';
 
 import { Card, CardContent, CardActions, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete } from '@mui/icons-material';
-
+import { ArchiveOutlined as Archive, DeleteOutlineOutlined as Delete} from '@mui/icons-material';
 import { DataContext } from '../../Context API/DataProvider';
 
 const StyledCard = styled(Card)`
@@ -33,8 +32,8 @@ const Note = ({ note }) => {
     return (
         <StyledCard>
                 <CardContent>
-                    <Typography>{note.heading}</Typography>
-                    <Typography>{note.text}</Typography>
+                    <Typography style={{fontWeight: '500',fontFamily: 'Poppins'}}>{note.heading}</Typography>
+                    <Typography style={{fontFamily: 'Poppins'}}>{note.text}</Typography>
                 </CardContent>
                 <CardActions>
                     <Archive 

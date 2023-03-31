@@ -15,7 +15,7 @@ const Text = styled(Typography)`
     font-size: 22px;
     @media only screen and (max-width: 400px)
     {
-    font-size: 20px;
+    font-size: 18px;
     }
 `
 
@@ -30,7 +30,7 @@ const EmptyNotes = () => {
     return (
         <Container>
             <Light />
-            <Text>Notes you add appear here</Text>
+            <Text style={{fontFamily: 'Poppins'}}>Notes you add appear here</Text>
         </Container>
     )
 }

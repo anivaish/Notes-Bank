@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -7,6 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useMediaQuery } from 'react-responsive';
 
 
 //imported components
@@ -77,24 +78,26 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 
- AppBar=styled(AppBar)`
+AppBar = styled(AppBar)`
 z-index:1201;
 background-color:#fff;
 height: 65px;
 box-shadow: inset 0 -1px 0 0 #dadce0;
 `;
 
-const Heading=styled(Typography)`
+const Heading = styled(Typography)`
   color: #5f6368;
   font-size: 22px;
   margin-left: 16px;
 `;
 
 const SlideDrawer = () => {
-  const [open, setOpen] = React.useState(true);
+  
+  // const open = !useMediaQuery({ query: `(max-width: 760px)` });
+  const [open, setOpen] = React.useState(!useMediaQuery({ query: `(max-width: 600px)` })); 
 
   const handleDrawer = () => {
-    setOpen(prevState=>!prevState);
+    setOpen(prevState => !prevState);
   };
 
   const logo = 'https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png';
@@ -103,7 +106,7 @@ const SlideDrawer = () => {
     <Box sx={{ display: 'flex' }}>
       <AppBar >
         <Toolbar>
-          <IconButton 
+          <IconButton
             onClick={handleDrawer}
             edge="start"
             sx={{
@@ -113,8 +116,8 @@ const SlideDrawer = () => {
           >
             <MenuIcon />
           </IconButton>
-          <img src={logo} alt="logo" style={{width: '40px',height: '40px'}} />
-          <Heading style={{marginLeft:'10px'}}>
+          <img src={logo} alt="logo" style={{ width: '40px', height: '40px' }} />
+          <Heading style={{ marginLeft: '10px', fontFamily: 'Poppins' }}>
             Notes Bank
           </Heading>
         </Toolbar>

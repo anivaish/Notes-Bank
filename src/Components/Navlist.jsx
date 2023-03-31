@@ -3,18 +3,17 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import LightbulbIcon from '@mui/icons-material/LightbulbOutlined';
 import ArchiveIcon from '@mui/icons-material/ArchiveOutlined';
 import DeleteIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { Link } from 'react-router-dom';
-
 const Navlist = () => {
     const navList = [
         { id: 1, name: 'Notes', icon: <LightbulbIcon />, route: '/' },
         { id: 2, name: 'Archives', icon: <ArchiveIcon />, route: '/archive' },
         { id: 3, name: 'Bin', icon: <DeleteIcon />, route: '/delete' },
     ]
+
     return (
         <List style={{ border: "none" }}>
             {navList.map(list => (
@@ -25,7 +24,6 @@ const Navlist = () => {
                                 minHeight: 48,
                                 justifyContent: window.open ? 'initial' : 'center',
                                 px: 2.5,
-
                             }}
                         >
                             <ListItemIcon
@@ -33,12 +31,14 @@ const Navlist = () => {
                                     minWidth: 0,
                                     mr: window.open ? 3 : 'auto',
                                     color: '#5f6368',
-                                    alignItems:'center'
+                                    alignItems: 'center'
                                 }}
                             >
                                 {list.icon}
                             </ListItemIcon>
-                            <ListItemText primary={list.name} />
+                            <p style={{
+                                margin: '0px 0px 0px 8px', fontFamily: 'poppins', fontSize: '.875rem', fontWeight: '500'
+                            }}>{list.name}</p>
                         </ListItemButton>
                     </Link>
                 </ListItem>
