@@ -115,7 +115,7 @@ const SlideDrawer = () => {
           </IconButton>
           <img src={logo} alt="logo" style={{width: '40px',height: '40px'}} />
           <Heading style={{marginLeft:'10px'}}>
-            Notes Keeper
+            Notes Bank
           </Heading>
         </Toolbar>
       </AppBar>
