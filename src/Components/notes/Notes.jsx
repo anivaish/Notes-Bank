@@ -36,7 +36,7 @@ const Notes = () => {
 
     return (
         <Box sx={{ display: 'flex', width: '100%' }}>
-            <Box sx={{ flexGrow: 1, p: 3, width: '100%',padding:'24px 24px 24px 12px' }}>
+            <Box sx={{ flexGrow: 1, p: 3, width: '100%',padding:'24px 12px 24px 12px' }}>
                 <DrawerHeader></DrawerHeader>
                 <Form />
                 {

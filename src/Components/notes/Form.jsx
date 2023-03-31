@@ -33,7 +33,7 @@ const Check = styled(CheckCircleOutlinedIcon)`
     @media only screen and (max-width: 600px)
     {
         left: 18%;
-        padding-left: 18px;
+        padding-left: 1px;
     }
 `;
 const note = {
