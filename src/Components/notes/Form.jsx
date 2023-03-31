@@ -30,9 +30,10 @@ const Check = styled(CheckCircleOutlinedIcon)`
     color: #5f6368;
     left: 64%;
     cursor: pointer;
-    @media only screen and (max-width: 500px)
+    @media only screen and (max-width: 600px)
     {
-        left: 20%;
+        left: 18%;
+        padding-left: 18px;
     }
 `;
 const note = {
