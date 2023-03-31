@@ -14,37 +14,37 @@ const StyledCard = styled(Card)`
     box-shadow: none;
 `
 
-const DeleteNote = ({ note }) => {
+const DeleteNote = ({ deleteNote }) => {
 
-    const { notes, setNotes, setAcrchiveNotes, deletedNotes,setDeleteNotes } = useContext(DataContext);
+    const {deleteNotes, setNotes, setAcrchiveNotes, setDeleteNotes } = useContext(DataContext);
 
-    const restoreNote = (note) => {
-        const updatedNotes = deletedNotes.filter(data => data.id !== note.id);
+    const restoreNote = (deleteNote) => {
+        const updatedNotes = deleteNotes.filter(data => data.id !== deleteNote.id);
         setDeleteNotes(updatedNotes);
-        setNotes(prevArr => [note, ...prevArr]);
+        setNotes(prevArr => [deleteNote, ...prevArr]);
     }
 
-    const deleteNote = (note) => {
-        const updatedNotes = notes.filter(data => data.id !== note.id);
+    const removeNote = (deleteNote) => {
+        const updatedNotes = deleteNotes.filter(data => data.id !== deleteNote.id);
         setDeleteNotes(updatedNotes);
     }
 
     return (
         <StyledCard>
                 <CardContent>
-                    <Typography>{note.heading}</Typography>
-                    <Typography>{note.text}</Typography>
+                    <Typography>{deleteNote.heading}</Typography>
+                    <Typography>{deleteNote.text}</Typography>
                 </CardContent>
                 <CardActions>
                     <Delete 
                         fontSize="small"
-                        onClick={() => deleteNote(note)}
+                        onClick={() => removeNote(deleteNote)}  
                         style={{cursor: 'pointer' }}
                     />
                     <Restore
                         fontSize="small" 
-                        style={{ marginLeft: 'auto',cursor: 'pointer'  }} 
-                        onClick={() =>restoreNote(note)}
+                        style={{cursor: 'pointer'  }} 
+                        onClick={() =>restoreNote(deleteNote)}
                     />  
                 </CardActions>
         </StyledCard>

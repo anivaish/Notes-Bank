@@ -4,11 +4,19 @@ import { Typography, Box, styled } from '@mui/material';
 const Light = styled(Lightbulb)`
     font-size: 120px;
     color: #e5e5e5;
+    @media only screen and (max-width: 400px)
+    {
+    font-size: 110px;
+    }
 `
 
 const Text = styled(Typography)`
     color: #5f6368e8;
-    font-size: 22px
+    font-size: 22px;
+    @media only screen and (max-width: 400px)
+    {
+    font-size: 20px;
+    }
 `
 
 const Container = styled(Box)`

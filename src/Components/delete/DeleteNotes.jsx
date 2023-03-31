@@ -13,7 +13,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const DeleteNotes = () => {
 
-    const { deletednotes } = useContext(DataContext);
+    const { deleteNotes } = useContext(DataContext);
 
     return (
         <Box sx={{ display: 'flex', width: '100%' }}>
@@ -21,9 +21,9 @@ const DeleteNotes = () => {
                 <DrawerHeader></DrawerHeader>
                 <Grid container style={{ marginTop: 16 }}>
                     {
-                        deletednotes.map(note => (
+                        deleteNotes.map(deleteNote => (
                             <Grid item>
-                                <DeleteNote note={note} />
+                                <DeleteNote deleteNote={deleteNote} />
                             </Grid>
                         ))
                     }
