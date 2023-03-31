@@ -23,15 +23,15 @@ const Navlist = () => {
                         <ListItemButton
                             sx={{
                                 minHeight: 48,
-                                justifyContent: open ? 'initial' : 'center',
+                                justifyContent: window.open ? 'initial' : 'center',
                                 px: 2.5,
-                                // backgroundColor: '#feefc3',
+
                             }}
                         >
                             <ListItemIcon
                                 sx={{
                                     minWidth: 0,
-                                    mr: open ? 3 : 'auto',
+                                    mr: window.open ? 3 : 'auto',
                                     color: '#5f6368',
                                     alignItems:'center'
                                 }}
