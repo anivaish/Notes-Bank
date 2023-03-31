@@ -31,7 +31,7 @@ const note = {
 const Form = () => {
     const containRef = useRef();
 
-    const { notes, setNotes } = useContext(DataContext);
+    const {setNotes } = useContext(DataContext);
 
     const [addNote, setAddNote] = useState({ ...note, id: uuid() })
 
